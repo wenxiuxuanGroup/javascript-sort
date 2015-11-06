@@ -22,7 +22,7 @@ function quickSort(data, left, right)
   while(l < r) {
     //to seperate all numbers into two parts, one smaller and another bigger
     //first, to find each number that smaller than pivot from the right end
-    while(l < r && x >= data[r]) {
+    while(l < r && x <= data[r]) {
       r--;
     }
     //set the first smaller number to left position
@@ -31,7 +31,7 @@ function quickSort(data, left, right)
       l++;
     }
     //to seek the first number that bigger than pivot in left part
-    while(l < r && x < data[l]) {
+    while(l < r && x > data[l]) {
       l ++;
     }
     //if found, set the first bigger number to right part
@@ -46,5 +46,5 @@ function quickSort(data, left, right)
   
   //do the recrusive again
   quickSort(data, left, l-1);
-  qucikSort(data, l+1, right);
+  quickSort(data, l+1, right);
 }
