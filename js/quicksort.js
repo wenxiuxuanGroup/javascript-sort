@@ -15,11 +15,14 @@ function quickSort(data, left, right)
   //to set pivot number, it could be any numbers inside the array, I set the first number here
   var l = left, r = right, x = data[left];
   
+  if(l > r) {
+    return
+  }
   console.log(data);
   while(l < r) {
     //to seperate all numbers into two parts, one smaller and another bigger
     //first, to find each number that smaller than pivot from the right end
-    while(x > data[r]) {
+    while(l < r && x > data[r]) {
       r--;
     }
     //set the first smaller number to left position
@@ -28,7 +31,7 @@ function quickSort(data, left, right)
       l++;
     }
     //to seek the first number that bigger than pivot in left part
-    while(x < data[l]) {
+    while(l < r && x < data[l]) {
       l ++;
     }
     //if found, set the first bigger number to right part
